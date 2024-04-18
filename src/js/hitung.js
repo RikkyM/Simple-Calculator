@@ -61,7 +61,8 @@ percent.addEventListener("click", () => {
       } else {
         prsn = (tempNilai / 100) * display.value;
       }
-      display.value = eval(expression + prsn)
+      display.placeholder = eval(expression + prsn)
+      display.value = "";
       temp.value = "";
     } else {
       display.value /= 100;
@@ -75,7 +76,7 @@ equals.addEventListener("click", () => {
     .replace(/×/g, "*")
     .replace(/−/g, "-");
 
-  if (display.value) {
+  if (display.value || display.placeholder) {
     if (temp.value) {
       let result = eval(expression + display.value);
       if (result === Infinity || isNaN(result)) {
@@ -90,7 +91,7 @@ equals.addEventListener("click", () => {
       temp.value = "";
     }
   } else {
-    display.value = temp.value.slice(0, -1);
+    display.placeholder = temp.value.slice(0, -1)
     temp.value = "";
   }
 });
