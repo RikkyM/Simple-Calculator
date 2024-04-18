@@ -631,9 +631,16 @@ video {
 .text-right {
   text-align: right;
 }
+.font-sans {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 .font-bold {
   font-weight: 700;
@@ -659,6 +666,12 @@ video {
   color: rgba(255, 255, 255, 1);
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
+.shadow-\\[inset_-5px_-5px_30px_0_rgba\\(0\\2c 0\\2c 0\\2c \\.2\\)\\2c inset_3px_3px_7px_0_rgba\\(255\\2c 255\\2c 255\\2c \\.3\\)\\] {
+  --tw-shadow: inset -5px -5px 30px 0 rgba(0,0,0,.2),inset 3px 3px 7px 0 rgba(255,255,255,.3);
+  --tw-shadow-colored: inset -5px -5px 30px 0 var(--tw-shadow-color), inset 3px 3px 7px 0 var(--tw-shadow-color);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), inset -5px -5px 30px 0 rgba(0,0,0,.2),inset 3px 3px 7px 0 rgba(255,255,255,.3);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+}
 
 .\\*\\:rounded-xl > * {
   border-radius: 0.75rem;
@@ -683,6 +696,18 @@ video {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, 1);
   color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.focus\\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.active\\:shadow-\\[inset_0_0_10px_0_rgba\\(255\\2c 255\\2c 255\\2c \\.2\\)\\2c inset_5px_5px_30px_0_rgba\\(0\\2c 0\\2c 0\\2c \\.3\\)\\]:active {
+  --tw-shadow: inset 0 0 10px 0 rgba(255,255,255,.2),inset 5px 5px 30px 0 rgba(0,0,0,.3);
+  --tw-shadow-colored: inset 0 0 10px 0 var(--tw-shadow-color), inset 5px 5px 30px 0 var(--tw-shadow-color);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), inset 0 0 10px 0 rgba(255,255,255,.2),inset 5px 5px 30px 0 rgba(0,0,0,.3);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
 }
 `, ""]);
 // Exports
@@ -1160,11 +1185,11 @@ arithmetic.forEach((amt) => {
       .replace(/×/g, "*")
       .replace(/−/g, "-");
     if (display.value) {
-      display.placeholder = "";
+      display.placeholder = ""
       if (temp.value) {
         if (eval(expression + display.value) === Infinity) {
           display.value = "";
-          display.placeholder = "Tidak bisa dibagi dengan 0";
+          display.placeholder = "Tidak terdefinisi";
           temp.value = "";
         } else {
           temp.value = eval(expression + display.value) + amt.textContent;
@@ -1214,10 +1239,11 @@ equals.addEventListener("click", () => {
     if (temp.value) {
       let result = eval(expression + display.value);
       if (result === Infinity || isNaN(result)) {
-        display.value = "Tidak bisa dibagi dengan 0";
+        display.placeholder = "Tidak terdefinisi";
       } else {
-        display.value = result;
+        display.placeholder = result;
       }
+      display.value =""
       temp.value = "";
     } else {
       display.value = display.value;

@@ -25,11 +25,11 @@ arithmetic.forEach((amt) => {
       .replace(/×/g, "*")
       .replace(/−/g, "-");
     if (display.value) {
-      display.placeholder = "";
+      display.placeholder = ""
       if (temp.value) {
         if (eval(expression + display.value) === Infinity) {
           display.value = "";
-          display.placeholder = "Tidak bisa dibagi dengan 0";
+          display.placeholder = "Tidak terdefinisi";
           temp.value = "";
         } else {
           temp.value = eval(expression + display.value) + amt.textContent;
@@ -79,10 +79,11 @@ equals.addEventListener("click", () => {
     if (temp.value) {
       let result = eval(expression + display.value);
       if (result === Infinity || isNaN(result)) {
-        display.value = "Tidak bisa dibagi dengan 0";
+        display.placeholder = "Tidak terdefinisi";
       } else {
-        display.value = result;
+        display.placeholder = result;
       }
+      display.value =""
       temp.value = "";
     } else {
       display.value = display.value;

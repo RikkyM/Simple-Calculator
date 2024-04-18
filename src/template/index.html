@@ -4,36 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Orbitron', sans-serif;
+      }
+    </style>
   </head>
   <body class="bg-white select-none">
     <div class="h-screen w-full flex justify-center items-center">
       <div class="bg-[#151C22] px-4 pb-4 py-5 rounded-lg flex flex-col">
-        <input type="text" class="text-right p-3 bg-transparent text-white font-bold tracking-widest placeholder:text-white" id="temp" readonly/>
-        <input type="text" class="text-right p-3 bg-transparent text-white font-bold tracking-widest placeholder:text-white text-xl" id="display" value="0" readonly/>
+        <input type="text" class="text-right p-3 bg-transparent text-white  font-bold tracking-widest focus:outline-none placeholder:text-white" id="temp" readonly/>
+        <input type="text" class="text-right p-3 bg-transparent text-white font-bold tracking-widest focus:outline-none placeholder:text-white text-xl" id="display" value="0" readonly/>
         <div id="input" class="grid grid-cols-4 row-span-5 gap-5 *:p-2 *:rounded-xl *:text-lg  mt-10">
-          <button id="clear-all" class="aspect-square bg-[#C01515] text-white font-bold">AC</button>
-          <button id="delete" class="aspect-square bg-[#C01515] text-white font-bold">C</button>
-          <button id="percent" class="aspect-square bg-[#4F6088] text-[#FEEA5F] font-bold">%</button>
-          <button class="amt divide aspect-square bg-[#4F6088] text-[#25F79E] font-extrabold">&divide;</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">7</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">8</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">9</button>
-          <button class="amt times aspect-square bg-[#4F6088] text-[#25F79E] font-extrabold">&times;</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">4</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">5</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">6</button>
-          <button class="amt minus aspect-square bg-[#4F6088] text-[#25F79E] font-extrabold">&minus;</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">1</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">2</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">3</button>
-          <button class="amt plus row-span-2 bg-[#4F6088] text-[#25F79E] font-extrabold">&plus;</button>
-          <button id="dot" class="aspect-square bg-[#262C48] text-white">.</button>
-          <button id="number" class="aspect-square font-bold bg-[#262C48] text-white ">0</button>
-          <button id="equals" class="aspect-square bg-[#4F6088] text-[#25F79E] font-extrabold">&equals;</button>
+          <button id="clear-all" class="aspect-square bg-[#C01515] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white font-bold">AC</button>
+          <button id="delete" class="aspect-square bg-[#C01515] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white font-bold">C</button>
+          <button id="percent" class="aspect-square bg-[#4F6088] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-[#FEEA5F] font-bold">%</button>
+          <button class="amt divide aspect-square bg-[#4F6088] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-[#25F79E] font-extrabold">&divide;</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">7</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">8</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">9</button>
+          <button class="amt times aspect-square bg-[#4F6088] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-[#25F79E] font-extrabold">&times;</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">4</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">5</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">6</button>
+          <button class="amt minus aspect-square bg-[#4F6088] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-[#25F79E] font-extrabold">&minus;</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">1</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">2</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">3</button>
+          <button class="amt plus row-span-2 bg-[#4F6088] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-[#25F79E] font-extrabold">&plus;</button>
+          <button id="dot" class="aspect-square bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white">.</button>
+          <button id="number" class="aspect-square font-bold bg-[#262C48] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-white ">0</button>
+          <button id="equals" class="aspect-square bg-[#4F6088] shadow-[inset_-5px_-5px_30px_0_rgba(0,0,0,.2),inset_3px_3px_7px_0_rgba(255,255,255,.3)] active:shadow-[inset_0_0_10px_0_rgba(255,255,255,.2),inset_5px_5px_30px_0_rgba(0,0,0,.3)] text-[#25F79E] font-extrabold">&equals;</button>
         </div>
       </div>
     </div>
-    <footer class="bottom-0 flex flex-col justify-center items-center w-full h-20">
+    <footer class="bottom-0 flex flex-col justify-center items-center w-full h-20 font-sans text-xs">
       <span class="text-center">&copy; Copyright 2024</span>
       <span class="text-center">All rights reserved. Powered by the Rikky Mahendra</span>
     </footer>
